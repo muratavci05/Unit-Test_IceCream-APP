@@ -14,24 +14,35 @@ const Scoops = () => {
       });
   }, []);
 
-
   return (
     <div>
-      <h1>Dondurma Çeşitleri</h1>
-      <p>Topu 5₺</p>
-      <h2>Çeşitler Ücret: 0</h2>
-      <div className="row d-flex gap-4">
-        {cesitler.map((cesit)=> {
-            return (
-                <div>
-                    <img 
-                    style={{width:"3.5rem"}}
-                    src={cesit.imagePath} alt=""/>
+      <h1 className="text-start">Dondurma Çeşitleri</h1>
+      <p className="text-start">Topu 5₺</p>
+      <h2 className="text-start">Çeşitler Ücret: 0</h2>
+      <div className="row mt-4 d-flex gap-4 p-3">
+        {cesitler.map((cesit) => {
+          return (
+            <div
+              className="col-3 d-flex flex-column align-items-center"
+              style={{ width: "10rem" }}
+            >
+              <img
+                id={cesit.name}
+                className="w-100 "
+                style={{ width: "50px" }}
+                src={cesit.imagePath}
+                alt="cesit"
+              />
+              <label className="lead">{cesit.name}</label>
+                <div className="d-flex gap-2">
+                    <button className="btn btn-danger">Sıfırla</button>
+                    <span>0</span>
+                    <button className="btn btn-warning">Ekle</button>
                 </div>
-                
-            );
+            </div>
+          );
         })}
-        </div>
+      </div>
     </div>
   );
 };
