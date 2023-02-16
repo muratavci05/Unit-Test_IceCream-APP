@@ -1,0 +1,47 @@
+{
+    "cesitler": [
+      {
+        "name": "Mint chip",
+        "imagePath": "/assets/mint-chip.png"
+      },
+      {
+        "name": "Vanilla",
+        "imagePath": "/assets/vanilla.png"
+      },
+      {
+        "name": "Chocolate",
+        "imagePath": "/assets/chocolate.png"
+      },
+      {
+        "name": "Salted caramel",
+        "imagePath": "/assets/salted-caramel.png"
+      }
+    ],
+    "soslar": [
+      {
+        "name": "M&Ms",
+        "imagePath": "/assets/m-and-ms.png"
+      },
+      {
+        "name": "Hot fudge",
+        "imagePath": "/assets/hot-fudge.png"
+      },
+      {
+        "name": "Peanut butter cups",
+        "imagePath": "/assets/peanut-butter-cups.png"
+      },
+      {
+        "name": "Gummi bears",
+        "imagePath": "/assets/gummi-bears.png"
+      },
+      {
+        "name": "Mochi",
+        "imagePath": "/assets/mochi.png"
+      },
+      {
+        "name": "Cherries",
+        "imagePath": "/assets/cherries.png"
+      }
+    ]
+  }
+  

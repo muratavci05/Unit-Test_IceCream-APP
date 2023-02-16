@@ -19,8 +19,9 @@ test("onayladıgında buton tıklanabilir olur",async() => {
   await user.click(termsCheck);
   expect(orderBtn).toBeEnabled();
 
-  //tekrar inaktif oluræ
+  //tekrar inaktif olur
 
   await user.click(termsCheck);
   expect(orderBtn).toBeDisabled();
 });
+
