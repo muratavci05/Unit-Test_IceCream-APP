@@ -24,4 +24,25 @@ test("onayladıgında buton tıklanabilir olur",async() => {
   await user.click(termsCheck);
   expect(orderBtn).toBeDisabled();
 });
+test('koşulların üstüne  mouse gelince bilgilendirme  çıkıyor', async () => {
+  render(<Form />);
+  const user = userEvent.setup();
+
+  //   gerekli elementler
+  const buton = screen.getByRole('button', { name: /Siparişi Onayla/i });
+  const termsCheck = screen.getByRole('checkbox', {
+    name: 'Kosulları okudum ve kabul ediyorum',
+  });
+  await user.click(termsCheck);
+
+  // kosulların üstüne mouse u getir
+  await user.hover(buton);
+  const popup = screen.getByText(/size gerçekten birsey teslim etmeyeceğiz/i);
+
+  expect(popup).toBeVisible();
+
+  //mouse gittiğinde kaybolur
+  await user.unhover(buton);
+  expect(popup).not.toBeVisible();
+});
 

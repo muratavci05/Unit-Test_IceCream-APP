@@ -1,16 +1,23 @@
-import React from 'react'
+import React from "react";
 
+import Form from "../form/Form";
+import Scoops from "./Scoops";
+import Toppings from "./Toppings";
 
-import Form from '../form/Form';
-import Scoops from './Scoops';
-
-const WelcomePage = () => {
+const WelcomePage = (props) => {
   return (
     <div>
-      <Scoops/>
-       <Form/>
-     </div>
-  )
-}
+      <div>
+        <Scoops />
+      </div>
+      <div>
+        <Toppings />
+      </div>
+      <div>
+        <Form />
+      </div>
+    </div>
+  );
+};
 
 export default WelcomePage;

@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Card from "./../../components/Card";
 
-const Scoops = () => {
+const Scoops = (props) => {
   const [cesitler, setCesitler] = useState([]);
+  const [sepet, setSepet] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:3004/cesitler")
@@ -14,32 +17,40 @@ const Scoops = () => {
       });
   }, []);
 
+  // SIFIRLAMA İŞLEMİ
+
+  const handleReset = (param) => {
+    const reseted = sepet.filter((i) => i.name !== param.name);
+    setSepet(reseted);
+  };
+
+  // ADET BULMA FONKSİYONU
+  const findAmount = (param) => {
+    const bulundu = sepet.filter((i) => i.name === param.name);
+    return bulundu.length;
+  };
+
   return (
-    <div>
-      <h1 className="text-start">Dondurma Çeşitleri</h1>
-      <p className="text-start">Topu 5₺</p>
-      <h2 className="text-start">Çeşitler Ücret: 0</h2>
-      <div className="row mt-4 d-flex gap-4 p-3">
+    <div className="container">
+      <div className="container d-flex py-3 gap-5">
+        <h1 className="text-start">Dondurma Çeşitleri</h1>
+
+        <p className="text-start p-3">Tanesi 10₺</p>
+
+        <h2 className="text-start p-1 ">Çeşitler Ücreti: {sepet.length * 10} ₺</h2>
+      </div>
+      <div className="row mt-4 d-flex gap-5 p-3 justify-content-between">
         {cesitler.map((cesit) => {
+          const adet = findAmount(cesit);
           return (
-            <div
-              className="col-3 d-flex flex-column align-items-center"
-              style={{ width: "10rem" }}
-            >
-              <img
-                id={cesit.name}
-                className="w-100 "
-                style={{ width: "50px" }}
-                src={cesit.imagePath}
-                alt="cesit"
-              />
-              <label className="lead">{cesit.name}</label>
-                <div className="d-flex gap-2">
-                    <button className="btn btn-danger">Sıfırla</button>
-                    <span>0</span>
-                    <button className="btn btn-warning">Ekle</button>
-                </div>
-            </div>
+            <Card
+              cesit={cesit}
+              findAmount={findAmount}
+              handleReset={handleReset}
+              adet={adet}
+              sepet={sepet}
+              setSepet={setSepet}
+            />
           );
         })}
       </div>
