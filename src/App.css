@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.kosullar {
+position: relative;
+}
+
+.popup {
+position: absolute;
+top:10px;
+}
