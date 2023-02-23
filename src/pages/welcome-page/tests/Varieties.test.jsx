@@ -17,13 +17,13 @@ test('sos verilerinin sepet statei üzerinde yaptığı değişim', async () => 
 
   // sosun eklnemesi ve toplamın değişmesi
   await user.click(mochiCheck);
-  expect(toplamH1).toHaveTextContent('5');
+  expect(toplamH1).toHaveTextContent('3');
 
   //   yeni sos ekleme
   await user.click(cherryCheck);
-  expect(toplamH1).toHaveTextContent('10');
+  expect(toplamH1).toHaveTextContent('6');
 
   //sos çıkarma
   await user.click(mochiCheck);
-  expect(toplamH1).toHaveTextContent('5');
+  expect(toplamH1).toHaveTextContent('3');
 });

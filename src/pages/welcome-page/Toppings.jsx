@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-
 const Toppings = () => {
   const [soslar, setSoslar] = useState([]);
   const [sepet, setSepet] = useState([]);
@@ -26,8 +25,8 @@ const Toppings = () => {
     <div className="container text-start my-1">
       <div className="container d-flex py-0 gap-2">
         <h1 className="container">Sos Çeşitleri</h1>
-        <p className="container m-3">Tanesi 5₺</p>
-        <h2 className="container m-3 ">Soslar Ücret: {sepet.length * 5} ₺</h2>
+        <p className="container m-3">Tanesi 3₺</p>
+        <h2 className="container m-3 ">Soslar Ücret: {sepet.length * 3} ₺</h2>
       </div>
       <div className="row gap-3">
         {soslar.map((sos) => (

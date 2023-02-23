@@ -36,7 +36,7 @@ test("koşulların üstüne  mouse gelince bilgilendirme  çıkıyor", async () 
   });
   await user.click(termsCheck);
 
-  // kosulların üstüne mouse u getir
+  // kosulların üstüne mouse"u getir
   await user.hover(buton);
   const popup = screen.getByText(/size gerçekten birsey teslim etmeyeceğiz/i);
 

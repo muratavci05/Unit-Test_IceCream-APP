@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Card from './../../components/Card';
+import axios from 'axios';
 
 const Scoops = () => {
   const [cesitler, setCesitler] = useState([]);
@@ -33,8 +33,8 @@ const Scoops = () => {
   return (
     <div className="container">
       <h1 className="text-start">Dondurma Çeşitleri</h1>
-      <p className="text-start">Tanesi 3$</p>
-      <h2 className="text-start">Çeşitler Ücreti: {sepet.length * 3} $</h2>
+      <p className="text-start">Tanesi 5₺</p>
+      <h2 className="text-start">Çeşitler Ücreti: {sepet.length * 5} ₺</h2>
       <div className="row mt-4 d-flex gap-5 p-3 justify-content-between">
         {cesitler.map((cesit) => {
           const adet = findAmount(cesit);

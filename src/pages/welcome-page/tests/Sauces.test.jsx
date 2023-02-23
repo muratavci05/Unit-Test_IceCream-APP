@@ -39,13 +39,13 @@ test('Dondurma çeşitlerinde ekleme ve sıfırlama işlemi', async () => {
   //Ekleme işlemleri ve kontrolü
   await user.click(ekleBtns[0]);
 
-  expect(toplamH1).toHaveTextContent('10');
+  expect(toplamH1).toHaveTextContent('5');
 
   await user.dblClick(ekleBtns[1]);
 
-  expect(toplamH1).toHaveTextContent('20');
+  expect(toplamH1).toHaveTextContent('15');
 
   //Sıfırlama işlemii
   await user.click(delBtns[1]);
-  expect(toplamH1).toHaveTextContent('10');
+  expect(toplamH1).toHaveTextContent('5');
 });
