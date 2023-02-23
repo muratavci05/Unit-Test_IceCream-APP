@@ -1,11 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import Scoops from "../Scoops";
-import userEvent from "@testing-library/user-event"
-
-//UNIT TEST
-
+import { findAllByRole, render, screen } from '@testing-library/react';
+import Scoops from './../Scoops';
+import userEvent from '@testing-library/user-event';
 /*
-    !SEÇİCİLER..
+!SEÇİCİLER..
 
     ? Komut [ALL]  BySeçici
     ! komut > get / find / query
@@ -14,44 +11,41 @@ import userEvent from "@testing-library/user-event"
               query : (elementler DOM'da yok ise)
               
                        kullanılırlar...
-
-    
 */
 
-test("API den gelen veri her çeşit için ekrana basılı", async () => {
+test('API den gelen veriyi her çeşit objesi için ekrana basar', async () => {
   render(<Scoops />);
 
   //çeşitlerde resimleri çek
-
-  const resimler = await screen.findAllByRole("img", { name: "cesit" }); //secici (selectors)
+  const resimler = await screen.findAllByRole('img', { name: 'cesit' }); //selectors
   expect(resimler).toHaveLength(4);
 });
 
-test("Dondurma çeşitlerinde ekleme ve sıfırlama işlemi", async () => {
+test('Dondurma çeşitlerinde ekleme ve sıfırlama işlemi', async () => {
   render(<Scoops />);
   const user = userEvent.setup();
 
-  //gerekli elemanları alalım
-  const toplamH1 = screen.getByRole("heading", {
+  // gerekli elemanları alalım
+  const toplamH1 = screen.getByRole('heading', {
     name: /Çeşitler Ücreti: /i,
   });
 
   //ekle butonlarını çekme
-  const ekleBtns = await screen.findAllByRole("button", { name: /ekle/i });
+  const ekleBtns = await screen.findAllByRole('button', { name: /ekle/i });
 
-  //sıfırlama butonlarını çekme
-  const delBtns = await screen.findAllByRole("button", { name: /Sıfırla/i });
+  //Sıfırlama butonlaarını çekme
+  const delBtns = await screen.findAllByRole('button', { name: /Sıfırla/i });
 
-  //ekleme işlemleri ve kontrolü
+  //Ekleme işlemleri ve kontrolü
   await user.click(ekleBtns[0]);
 
-  expect(toplamH1).toHaveTextContent("10");
+  expect(toplamH1).toHaveTextContent('10');
 
   await user.dblClick(ekleBtns[1]);
 
-  expect(toplamH1).toHaveTextContent("10");
+  expect(toplamH1).toHaveTextContent('20');
 
-  //Sıfırlama işlemi
+  //Sıfırlama işlemii
   await user.click(delBtns[1]);
-  expect(toplamH1).toHaveTextContent("10");
+  expect(toplamH1).toHaveTextContent('10');
 });

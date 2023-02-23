@@ -29,7 +29,7 @@ test("koşulların üstüne  mouse gelince bilgilendirme  çıkıyor", async () 
   render(<Form />);
   const user = userEvent.setup();
 
-  // gerekli elementler
+  //   gerekli elementler
   const buton = screen.getByRole("button", { name: /Siparişi Onayla/i });
   const termsCheck = screen.getByRole("checkbox", {
     name: "Kosulları okudum ve kabul ediyorum",

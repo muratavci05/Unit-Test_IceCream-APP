@@ -9,11 +9,14 @@ const Card = ({ cesit, handleReset, setSepet, sepet, adet }) => {
     >
       <img
         id={cesit.name}
-        className="w-100 "
+        className="w-100"
         src={cesit.imagePath}
         alt="cesit"
       />
-      <label className="lead">{cesit.name}</label>
+      <label 
+      className="lead"
+      >{cesit.name}</label>
+
       <div className="d-flex gap-3 mt-2 align-items-center">
         <button className="btn btn-danger" onClick={() => handleReset(cesit)}>
           Sıfırla
